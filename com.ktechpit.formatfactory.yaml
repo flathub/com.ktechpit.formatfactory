@@ -1,0 +1,48 @@
+app-id: com.ktechpit.formatfactory
+runtime: org.kde.Platform
+runtime-version: '6.10'
+sdk: org.kde.Sdk
+command: formatfactory
+finish-args:
+  - --share=network
+  - --share=ipc
+  - --socket=fallback-x11
+  - --socket=wayland
+  - --device=dri
+  - --env=INSTALL_TYPE=flatpak
+
+  - --filesystem=xdg-documents
+  - --filesystem=xdg-download
+  - --filesystem=xdg-music
+  - --filesystem=xdg-videos
+
+modules:
+  - shared-modules/squashfs-tools/squashfs-tools.json
+
+  - name: formatfactory
+    buildsystem: simple
+    build-commands:
+      - unsquashfs -no-progress *.snap
+      - install -Dm755 squashfs-root/usr/bin/formatfactory ${FLATPAK_DEST}/bin/formatfactory
+      - cp -r squashfs-root/usr/share/icons ${FLATPAK_DEST}/share/
+      - install -Dm644 squashfs-root/usr/share/applications/com.ktechpit.formatfactory.desktop ${FLATPAK_DEST}/share/applications/com.ktechpit.formatfactory.desktop
+      - desktop-file-edit --set-icon=${FLATPAK_ID} ${FLATPAK_DEST}/share/applications/com.ktechpit.formatfactory.desktop
+      - install -Dm644 squashfs-root/usr/share/metainfo/com.ktechpit.formatfactory.appdata.xml ${FLATPAK_DEST}/share/metainfo/com.ktechpit.formatfactory.metainfo.xml
+    sources:
+      # =========================
+      # x86_64 (amd64) — stable
+      # =========================
+      - type: file
+        url: https://api.snapcraft.io/api/v1/snaps/download/VHkjlTHdKSgkkl65bX4FOUKxefYapalV_21.snap
+        sha256: a82615367e76727c8e776d7c846e0b1981522b0195fc503b4bca1bd4adc15c6d
+        only-arches:
+          - x86_64
+
+      # =========================
+      # arm64 (aarch64) — stable
+      # =========================
+      - type: file
+        url: https://api.snapcraft.io/api/v1/snaps/download/VHkjlTHdKSgkkl65bX4FOUKxefYapalV_20.snap
+        sha256: ebc20ba5b88a19a1fd54008554e7924819bce6f3cfa80f260443bb18743d36e8
+        only-arches:
+          - aarch64
