@@ -11,11 +11,6 @@ finish-args:
   - --device=dri
   - --env=INSTALL_TYPE=flatpak
 
-  - --filesystem=xdg-documents
-  - --filesystem=xdg-download
-  - --filesystem=xdg-music
-  - --filesystem=xdg-videos
-
 modules:
   - shared-modules/squashfs-tools/squashfs-tools.json
 
