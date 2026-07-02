@@ -28,8 +28,8 @@ modules:
       # x86_64 (amd64) — stable
       # =========================
       - type: file
-        url: https://api.snapcraft.io/api/v1/snaps/download/VHkjlTHdKSgkkl65bX4FOUKxefYapalV_34.snap
-        sha256: 62c4ded88ffb73513dfe1d52099e2f2fe2c461984a125f9a5401be66f6bf21c8
+        url: https://api.snapcraft.io/api/v1/snaps/download/VHkjlTHdKSgkkl65bX4FOUKxefYapalV_37.snap
+        sha256: 4661bdc97cc43c93abfe4e55db59d1ee2bd1e4b028f4366eda0aeeb4577460df
         only-arches:
           - x86_64
 
@@ -37,7 +37,7 @@ modules:
       # arm64 (aarch64) — stable
       # =========================
       - type: file
-        url: https://api.snapcraft.io/api/v1/snaps/download/VHkjlTHdKSgkkl65bX4FOUKxefYapalV_35.snap
-        sha256: 4382da5a22c68d43fbc50d1c54bd3d0cef5712d2450df120454f17b50e2f9da8
+        url: https://api.snapcraft.io/api/v1/snaps/download/VHkjlTHdKSgkkl65bX4FOUKxefYapalV_38.snap
+        sha256: fb33c5327769f7a5356e07d01a36170a04c854e386511ef553ede0f7746e1606
         only-arches:
           - aarch64
